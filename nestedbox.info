@@ -1,0 +1,8 @@
+name = Nested box
+description = Defines an entity type to be used for nested content embedded with entityreference.
+core = 7.x
+
+dependencies[] = xautoload (>=7.x-4.1)
+dependencies[] = entity
+dependencies[] = entity_operations
+dependencies[] = inline_entity_form

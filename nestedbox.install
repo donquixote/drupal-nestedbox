@@ -1,0 +1,102 @@
+<?php
+
+/**
+ * @file
+ * Create table for typical_entity_example_1.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function nestedbox_schema() {
+  $schema = array();
+
+  $schema['nestedbox'] = array(
+    'description' => 'The base table for Nested Box entities.',
+    'fields' => array(
+      'nestedbox_id' => array(
+        'description' => 'The primary identifier.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'admin_title' => array(
+        'description' => 'Administrative title',
+        'type' => 'varchar',
+        'length' => 255,
+        # 'not null' => TRUE,
+      ),
+      'type' => array(
+        'description' => 'Entity bundle.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'uid' => array(
+        // Note this won't get set by the generic form handlers; but we have
+        // this anyway to demonstrate the 'set owner' operation.
+        'description' => 'The {users}.uid who owns this entity.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('nestedbox_id'),
+  );
+
+  $schema['nestedbox_type'] = array(
+    'description' => 'Stores information about defined Nested Box types.',
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique Nested Box type identifier.',
+      ),
+      'type' => array(
+        'description' => 'The machine-readable name of this Nested Box type.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'label' => array(
+        'description' => 'The human-readable name of this Nested Box type.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'weight' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'size' => 'tiny',
+        'description' => 'The weight of this Nested Box type in relation to others.',
+      ),
+      'data' => array(
+        'type' => 'text',
+        'not null' => FALSE,
+        'size' => 'big',
+        'serialize' => TRUE,
+        'description' => 'A serialized array of additional data related to this Nested Box type.',
+      ),
+    ) + entity_exportable_schema_fields(),
+    'primary key' => array('id'),
+    'unique keys' => array(
+      'type' => array('type'),
+    ),
+  );
+
+  return $schema;
+}
+
+
+function nestedbox_update_7100() {
+  $spec = array(
+    'description' => 'Administrative title',
+    'type' => 'varchar',
+    'length' => 255,
+    # 'not null' => TRUE,
+  );
+  db_add_field('nestedbox', 'admin_title', $spec);
+}
