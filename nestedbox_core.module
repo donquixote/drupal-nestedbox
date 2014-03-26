@@ -36,6 +36,11 @@ function nestedbox_core_theme() {
   );
 }
 
+/**
+ * Preprocess variables for theme('nestedbox').
+ *
+ * @param array $variables
+ */
 function template_preprocess_nestedbox(&$variables) {
   module_load_include('theme.inc', 'entity', 'theme/entity');
   template_preprocess_entity($variables);
@@ -145,7 +150,7 @@ function nestedbox_core_entity_info_alter(&$entity_info) {
  * Gets an array of all nestedbox types, keyed by the type name.
  *
  * @return NestedBoxType[]
- *   An array of nestedbox types.
+ *   An array of nestedbox types. Array keys are the machine names.
  */
 function nestedbox_get_types() {
   // entity_load() will get the Entity controller for our nestedbox entity and
