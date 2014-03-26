@@ -75,6 +75,7 @@ function nestedbox_core_entity_info() {
       // We need our own controller for this, because we're using generic
       // entity form operations.
       'controller class' => 'EntityOperationsDefaultAdminUIController',
+      'menu wildcard' => '%nestedbox',
     ),
     // Entity Operations API
     'operations ui' => array(
@@ -112,6 +113,7 @@ function nestedbox_core_entity_info() {
       'path' => 'admin/structure/nestedbox-types',
       'file' => 'nestedbox_type.admin.inc',
       'controller class' => NestedBoxTypeUIController::getClassName(),
+      'menu wildcard' => '%nestedbox_type',
     ),
   );
 
