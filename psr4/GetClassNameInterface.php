@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Drupal\nestedbox;
+namespace Drupal\nestedbox_core;
 
 
 interface GetClassNameInterface {

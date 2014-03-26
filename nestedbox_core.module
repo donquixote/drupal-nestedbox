@@ -1,18 +1,18 @@
 <?php
 
-use Drupal\nestedbox\NestedBox;
-use Drupal\nestedbox\NestedBoxController;
-use Drupal\nestedbox\NestedBoxInlineEntityFormController;
-use Drupal\nestedbox\NestedBoxType;
-use Drupal\nestedbox\NestedBoxTypeController;
-use Drupal\nestedbox\NestedBoxTypeUIController;
+use Drupal\nestedbox_core\NestedBox;
+use Drupal\nestedbox_core\NestedBoxController;
+use Drupal\nestedbox_core\NestedBoxInlineEntityFormController;
+use Drupal\nestedbox_core\NestedBoxType;
+use Drupal\nestedbox_core\NestedBoxTypeController;
+use Drupal\nestedbox_core\NestedBoxTypeUIController;
 
 xautoload()->registerModulePsr4(__FILE__, 'psr4');
 
 /**
  * Implements hook_permission()
  */
-function nestedbox_permission() {
+function nestedbox_core_permission() {
   return array(
     'administer nestedbox entities' => array(
       'title' => t('Administer Nested Box entities'),
@@ -26,12 +26,12 @@ function nestedbox_permission() {
  *
  * @return array
  */
-function nestedbox_theme() {
+function nestedbox_core_theme() {
   return array(
     'nestedbox' => array(
       'render element' => 'elements',
       'template' => 'nestedbox',
-      'path' => drupal_get_path('module', 'nestedbox') . '/theme',
+      'path' => drupal_get_path('module', 'nestedbox_core') . '/theme',
     ),
   );
 }
@@ -47,7 +47,7 @@ function template_preprocess_nestedbox(&$variables) {
  *
  * Inspired by entity_operations/example_entity, and typical_entity_example.
  */
-function nestedbox_entity_info() {
+function nestedbox_core_entity_info() {
   $info = array();
 
   $info['nestedbox'] = array(
@@ -68,7 +68,7 @@ function nestedbox_entity_info() {
     'fieldable' => TRUE,
     'uri callback' => 'entity_operations_entity_uri',
     'label callback' => 'entity_class_label',
-    'module' => 'nestedbox',
+    'module' => 'nestedbox_core',
     'access callback' => 'nestedbox_access',
     'admin ui' => array(
       'path' => 'admin/content/nestedbox',
@@ -103,7 +103,7 @@ function nestedbox_entity_info() {
       'label' => 'label',
     ),
     'access callback' => 'nestedbox_type_access',
-    'module' => 'nestedbox',
+    'module' => 'nestedbox_core',
     // Enable the entity API's admin UI.
     'admin ui' => array(
       'path' => 'admin/structure/nestedbox-types',
@@ -122,7 +122,7 @@ function nestedbox_entity_info() {
  * recursion issue, as loading the nestedbox types requires the entity info as
  * well.
  */
-function nestedbox_entity_info_alter(&$entity_info) {
+function nestedbox_core_entity_info_alter(&$entity_info) {
   foreach (nestedbox_get_types() as $type => $info) {
     $entity_info['nestedbox']['bundles'][$type] = array(
       'label' => $info->label,
@@ -185,7 +185,7 @@ function nestedbox_type_load($type_name) {
 /**
  * Implements hook_entity_operation_info().
  */
-function nestedbox_entity_operation_info() {
+function nestedbox_core_entity_operation_info() {
   $info = array();
 
   $info['nestedbox'] = array(
@@ -268,7 +268,7 @@ function nestedbox_entity_operation_info() {
  * This implementation is necessary for dealing with Entity Metadata Wrappers.
  * @see http://drupal.org/node/1021466
  */
-function nestedbox_entity_property_info() {
+function nestedbox_core_entity_property_info() {
   $info = array();
   $properties = &$info['nestedbox']['properties'];
   $properties['nestedbox_id'] = array(
@@ -297,7 +297,7 @@ function nestedbox_entity_property_info() {
 /**
  * Implements hook_menu().
  */
-function nestedbox_menu() {
+function nestedbox_core_menu() {
   $items = array();
 
   // URI for deleting entity bundles.
@@ -348,6 +348,6 @@ function nestedbox_type_access($op, $entity = NULL) {
  *
  * @param array $form
  */
-function nestedbox_form_entity_operations_operation_form_nestedbox_edit_alter(&$form) {
+function nestedbox_core_form_entity_operations_operation_form_nestedbox_edit_alter(&$form) {
   $form['admin_title']['#title'] = t('Administrative title');
 }

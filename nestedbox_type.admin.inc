@@ -1,5 +1,5 @@
 <?php
-use Drupal\nestedbox\NestedBoxType;
+use Drupal\nestedbox_core\NestedBoxType;
 
 /**
  * Generates the nestedbox type editing form.
