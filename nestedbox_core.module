@@ -14,7 +14,7 @@ xautoload()->registerModulePsr4(__FILE__, 'psr4');
  */
 function nestedbox_core_permission() {
   return array(
-    'administer nestedbox entities' => array(
+    'administer nestedbox types' => array(
       'title' => t('Administer Nested Box entities'),
       'description' => t('Perform administration tasks for my module.'),
     ),
@@ -308,7 +308,7 @@ function nestedbox_core_menu() {
     'title' => 'Delete nested box',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('nestedbox_type_form_delete_confirm', 4),
-    'access arguments' => array('administer typical_entity_example content'),
+    'access arguments' => array('administer nestedbox types'),
     'weight' => 1,
     'type' => MENU_NORMAL_ITEM,
     'file' => 'nestedbox_type.admin.inc',
@@ -343,7 +343,7 @@ function nestedbox_type_load_multiple($type_name = NULL) {
  * Access callback for nestedbox_type.
  */
 function nestedbox_type_access($op, $entity = NULL) {
-  return user_access('administer nestedbox content');
+  return user_access('administer nestedbox types');
 }
 
 /**
