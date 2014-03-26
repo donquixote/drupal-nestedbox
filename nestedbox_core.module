@@ -84,10 +84,13 @@ function nestedbox_core_entity_info() {
       // value here).
       'path' => 'nestedbox',
     ),
-    'inline entity form' => array(
-      'controller' => NestedBoxInlineEntityFormController::getClassName(),
-    ),
   );
+
+  if (module_exists('inline_entity_form')) {
+    $info['nestedbox']['inline entity form'] = array(
+      'controller' => NestedBoxInlineEntityFormController::getClassName(),
+    );
+  }
 
   $info['nestedbox_type'] = array(
     'label' => t('Nested Box type'),
