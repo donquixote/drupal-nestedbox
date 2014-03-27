@@ -10,6 +10,18 @@ use Drupal\nestedbox_core\NestedBoxTypeUIController;
 xautoload()->registerModulePsr4(__FILE__, 'psr4');
 
 /**
+ * Implements hook_module_implements_alter()
+ *
+ * @param array $implementations
+ *   Array of the format $implementations[$module] = $group|false.
+ * @param string $hook
+ */
+function nestedbox_core_module_implements_alter(&$implementations, $hook) {
+
+}
+
+
+/**
  * Implements hook_permission()
  */
 function nestedbox_core_permission() {
