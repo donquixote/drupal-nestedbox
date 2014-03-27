@@ -90,7 +90,9 @@ function nestedbox_core_schema() {
   return $schema;
 }
 
-
+/**
+ * Add table column nestedbox.admin_title, for an administrative title.
+ */
 function nestedbox_core_update_7100() {
   $spec = array(
     'description' => 'Administrative title',
