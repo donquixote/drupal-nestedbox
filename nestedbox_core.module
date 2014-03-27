@@ -17,7 +17,6 @@ function nestedbox_core_module_implements_alter(&$implementations, $hook) {
 
   switch ($hook) {
     case 'menu_alter':
-    case 'entity_info_alter':
       // Push these implementations to the end.
       // $group will be changed further down.
       $group = FALSE;
