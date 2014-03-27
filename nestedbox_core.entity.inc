@@ -19,6 +19,11 @@ function nestedbox_core_entity_info() {
     'label' => t('Nested Box'),
     'plural label' => t('Nested Boxes'),
     'base table' => 'nestedbox',
+    'translation' => array(
+      'entity_translation' => array(
+        'base path' => 'admin/content/nestedbox/%nestedbox',
+      ),
+    ),
     'entity keys' => array(
       'id' => 'nestedbox_id',
       'bundle' => 'type',
