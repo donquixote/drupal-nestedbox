@@ -59,7 +59,7 @@ function nestedbox_core_entity_info() {
       // but without the ID suffix. (In fact, you can set
       // entity_operations_entity_uri() as your URI callback, which will use the
       // value here).
-      'path' => 'nestedbox',
+      'path' => 'admin/content/nestedbox',
     ),
   );
 

@@ -46,7 +46,7 @@ class NestedBox extends \Entity {
    * @return array
    */
   protected function defaultUri() {
-    return array('path' => 'nestedbox/' . $this->nestedbox_id);
+    return array('path' => 'admin/content/nestedbox/' . $this->nestedbox_id);
   }
 
 } 
