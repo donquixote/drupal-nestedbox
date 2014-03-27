@@ -17,6 +17,18 @@ function nestedbox_core_menu() {
     'file' => 'nestedbox_type.admin.inc',
   );
 
+  // URI for deleting entities.
+  $items['admin/content/nestedbox/%nestedbox/delete'] = array(
+    'title' => 'Delete nested box',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('nestedbox_form_delete_confirm', 4),
+    // @todo Dedicated permission.
+    'access arguments' => array('administer nestedbox types'),
+    'weight' => 1,
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'nestedbox.admin.inc',
+  );
+
   return $items;
 }
 
