@@ -147,6 +147,13 @@ function nestedbox_core_entity_operation_info() {
         'views field' => TRUE,
       ),
     ),
+    'delete' => array(
+      'handler' => 'EntityOperationsOperationDelete',
+      'provision' => array(
+        'menu' => TRUE,
+        'views field' => TRUE,
+      ),
+    ),
     'devel/devel' => array(
       'handler' => 'EntityOperationsOperationDevel',
       'provision' => array(
