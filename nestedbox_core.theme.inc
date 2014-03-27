@@ -22,7 +22,6 @@ function nestedbox_core_theme() {
  * @param array $variables
  */
 function template_preprocess_nestedbox(&$variables) {
-  dpm($variables);
   module_load_include('theme.inc', 'entity', 'theme/entity');
   template_preprocess_entity($variables);
   unset($variables['title']);
