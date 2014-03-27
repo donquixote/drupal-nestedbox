@@ -45,13 +45,17 @@ function nestedbox_core_module_implements_alter(&$implementations, $hook) {
   if (!isset($group)) {
     return;
   }
+  elseif (FALSE !== $group) {
+    require_once __DIR__ . '/nestedbox_core.' . $group . '.inc';
+  }
 
   $implementations['nestedbox_core'] = $group;
-  require_once __DIR__ . '/nestedbox_core.' . $group . '.inc';
 }
 
 /**
  * Implements hook_permission()
+ *
+ * @return array
  */
 function nestedbox_core_permission() {
   return array(
