@@ -7,8 +7,8 @@ function nestedbox_core_menu() {
   $items = array();
 
   // URI for deleting entity bundles.
-  $items['admin/structure/nestedbox/%nestedbox_type/delete'] = array(
-    'title' => 'Delete nested box',
+  $items['admin/structure/nestedbox-types/manage/%nestedbox_type/delete'] = array(
+    'title' => 'Delete nested box type',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('nestedbox_type_form_delete_confirm', 4),
     'access arguments' => array('administer nestedbox types'),
