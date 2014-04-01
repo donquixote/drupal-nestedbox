@@ -32,12 +32,6 @@ function nestedbox_core_entity_info() {
     'bundle keys' => array(
       'bundle' => 'type',
     ),
-    'view modes' => array(
-      'default' => array(
-        'label' => t('Default'),
-        'custom settings' => FALSE,
-      ),
-    ),
     'entity class' => NestedBox::getClassName(),
     'controller class' => NestedBoxController::getClassName(),
     'metadata controller class' => '',
