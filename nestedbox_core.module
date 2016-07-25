@@ -16,17 +16,7 @@ require_once __DIR__ . '/nestedbox.public.inc';
 function nestedbox_core_module_implements_alter(&$implementations, $hook) {
 
   switch ($hook) {
-    case 'menu_alter':
-      // Push these implementations to the end.
-      // $group will be changed further down.
-      $group = FALSE;
-      unset($implementations['nestedbox_core']);
-  }
 
-  switch ($hook) {
-
-    case 'menu':
-    case 'menu_alter':
     case 'admin_menu_map':
       $group = 'menu';
       break;

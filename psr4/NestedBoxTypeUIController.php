@@ -4,7 +4,7 @@
 namespace Drupal\nestedbox_core;
 
 
-class NestedBoxTypeUIController extends \EntityDefaultUIController {
+class NestedBoxTypeUIController extends \EntityOperationsDefaultAdminUIController {
 
   /**
    * @return string

@@ -11,7 +11,9 @@ use Drupal\nestedbox_core\NestedBoxType;
  *
  * @return mixed
  */
-function nestedbox_type_form($form, &$form_state, NestedBoxType $nestedbox_type, $op = 'edit') {
+function _nestedbox_type_form($form, &$form_state, NestedBoxType $nestedbox_type, $op = 'edit') {
+
+  dpm(__FUNCTION__);
 
   if ($op == 'clone') {
     $nestedbox_type->label .= ' (cloned)';

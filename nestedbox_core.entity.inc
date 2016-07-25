@@ -178,7 +178,7 @@ function nestedbox_core_entity_operation_info() {
     ),
   );
 
-  $info['_nestedbox_type'] = array(
+  $info['nestedbox_type'] = array(
     'add' => array(
       'handler' => 'EntityOperationsOperationAddGeneric',
       'provision' => array(
@@ -191,6 +191,13 @@ function nestedbox_core_entity_operation_info() {
         'menu' => array(
           'default' => TRUE,
         ),
+      ),
+    ),
+    'delete' => array(
+      'handler' => 'EntityOperationsOperationDelete',
+      'provision' => array(
+        'menu' => TRUE,
+        'views field' => TRUE,
       ),
     ),
   );
