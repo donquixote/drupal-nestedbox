@@ -7,13 +7,6 @@ namespace Drupal\nestedbox_core;
 class NestedBoxTypeUIController extends \EntityDefaultUIController {
 
   /**
-   * @return string
-   */
-  static function getClassName() {
-    return get_called_class();
-  }
-
-  /**
    * Overrides hook_menu() defaults.
    */
   public function hook_menu() {

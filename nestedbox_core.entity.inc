@@ -38,8 +38,8 @@ function nestedbox_core_entity_info() {
         'custom settings' => FALSE,
       ),
     ),
-    'entity class' => NestedBox::getClassName(),
-    'controller class' => NestedBoxController::getClassName(),
+    'entity class' => NestedBox::class,
+    'controller class' => NestedBoxController::class,
     'metadata controller class' => '',
     'fieldable' => TRUE,
     /* @see entity_operations_entity_uri() */
@@ -69,14 +69,14 @@ function nestedbox_core_entity_info() {
 
   if (module_exists('inline_entity_form')) {
     $info['nestedbox']['inline entity form'] = array(
-      'controller' => NestedBoxInlineEntityFormController::getClassName(),
+      'controller' => NestedBoxInlineEntityFormController::class,
     );
   }
 
   $info['nestedbox_type'] = array(
     'label' => t('Nested Box type'),
-    'entity class' => NestedBoxType::getClassName(),
-    'controller class' => NestedBoxTypeController::getClassName(),
+    'entity class' => NestedBoxType::class,
+    'controller class' => NestedBoxTypeController::class,
     'base table' => 'nestedbox_type',
     'fieldable' => FALSE,
     'bundle of' => 'nestedbox',
@@ -93,7 +93,7 @@ function nestedbox_core_entity_info() {
     'admin ui' => array(
       'path' => 'admin/structure/nestedbox-types',
       'file' => 'nestedbox_type.admin.inc',
-      'controller class' => NestedBoxTypeUIController::getClassName(),
+      'controller class' => NestedBoxTypeUIController::class,
       /* @see nestedbox_type_load() */
       'menu wildcard' => '%nestedbox_type',
     ),

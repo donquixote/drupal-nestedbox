@@ -7,13 +7,6 @@ namespace Drupal\nestedbox_core;
 class NestedBox extends \Entity {
 
   /**
-   * @return string
-   */
-  static function getClassName() {
-    return get_called_class();
-  }
-
-  /**
    * @var int
    */
   public $nestedbox_id;

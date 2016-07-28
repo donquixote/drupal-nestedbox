@@ -7,13 +7,6 @@ namespace Drupal\nestedbox_core;
 class NestedBoxInlineEntityFormController extends \EntityInlineEntityFormController {
 
   /**
-   * @return string
-   */
-  static function getClassName() {
-    return get_called_class();
-  }
-
-  /**
    * Overrides \EntityInlineEntityFormController::defaultLabels().
    */
   public function defaultLabels() {

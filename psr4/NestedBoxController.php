@@ -7,13 +7,6 @@ namespace Drupal\nestedbox_core;
 class NestedBoxController extends \EntityAPIController {
 
   /**
-   * @return string
-   */
-  static function getClassName() {
-    return get_called_class();
-  }
-
-  /**
    * Create a model - we first set up the values that are specific
    * to our model schema but then also go through the EntityAPIController
    * function.
