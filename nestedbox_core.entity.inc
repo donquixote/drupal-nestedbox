@@ -42,15 +42,19 @@ function nestedbox_core_entity_info() {
     'controller class' => NestedBoxController::getClassName(),
     'metadata controller class' => '',
     'fieldable' => TRUE,
+    /* @see entity_operations_entity_uri() */
     'uri callback' => 'entity_operations_entity_uri',
+    /* @see entity_class_label() */
     'label callback' => 'entity_class_label',
     'module' => 'nestedbox_core',
+    /* @see nestedbox_access() */
     'access callback' => 'nestedbox_access',
     'admin ui' => array(
       'path' => 'admin/content/nestedbox',
       // We need our own controller for this, because we're using generic
       // entity form operations.
       'controller class' => 'EntityOperationsDefaultAdminUIController',
+      /* @see nestedbox_load() */
       'menu wildcard' => '%nestedbox',
     ),
     // Entity Operations API
@@ -82,6 +86,7 @@ function nestedbox_core_entity_info() {
       'name' => 'type',
       'label' => 'label',
     ),
+    /* @see nestedbox_type_access() */
     'access callback' => 'nestedbox_type_access',
     'module' => 'nestedbox_core',
     // Enable the entity API's admin UI.
@@ -89,6 +94,7 @@ function nestedbox_core_entity_info() {
       'path' => 'admin/structure/nestedbox-types',
       'file' => 'nestedbox_type.admin.inc',
       'controller class' => NestedBoxTypeUIController::getClassName(),
+      /* @see nestedbox_type_load() */
       'menu wildcard' => '%nestedbox_type',
     ),
   );
@@ -217,6 +223,7 @@ function nestedbox_core_entity_property_info() {
     'type' => 'integer',
     'schema field' => 'nestedbox_id',
     'label' => t('The primary identifier.'),
+    /* @see entity_property_verbatim_set() */
     'setter callback' => 'entity_property_verbatim_set',
   );
   $properties['admin_title'] = array(
@@ -224,6 +231,7 @@ function nestedbox_core_entity_property_info() {
     'schema_field' => 'admin_title',
     'required' => FALSE,
     'label' => t('Administrative title'),
+    /* @see entity_property_verbatim_set() */
     'setter callback' => 'entity_property_verbatim_set',
   );
   $properties['type'] = array(
@@ -231,6 +239,7 @@ function nestedbox_core_entity_property_info() {
     'schema field' => 'type',
     'required' => TRUE,
     'label' => t('Nested Box type (bundle)'),
+    /* @see entity_property_verbatim_set() */
     'setter callback' => 'entity_property_verbatim_set',
   );
   return $info;
