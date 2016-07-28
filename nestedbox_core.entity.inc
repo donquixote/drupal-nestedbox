@@ -53,7 +53,7 @@ function nestedbox_core_entity_info() {
       'path' => 'admin/content/nestedbox',
       // We need our own controller for this, because we're using generic
       // entity form operations.
-      'controller class' => 'EntityOperationsDefaultAdminUIController',
+      'controller class' => EntityOperationsDefaultAdminUIController::class,
       /* @see nestedbox_load() */
       'menu wildcard' => '%nestedbox',
     ),
@@ -131,14 +131,14 @@ function nestedbox_core_entity_operation_info() {
 
   $info['nestedbox'] = array(
     'add' => array(
-      'handler' => 'EntityOperationsOperationAddGeneric',
+      'handler' => EntityOperationsOperationAddGeneric::class,
       'provision' => array(
         'menu' => TRUE,
       ),
     ),
     'view' => array(
       // Or try EntityOperationsOperationEntityViewOperations!
-      'handler' => 'EntityOperationsOperationEntityView',
+      'handler' => EntityOperationsOperationEntityView::class,
       'provision' => array(
         'menu' => array(
           'default' => TRUE,
@@ -147,21 +147,21 @@ function nestedbox_core_entity_operation_info() {
       ),
     ),
     'edit' => array(
-      'handler' => 'EntityOperationsOperationEditGeneric',
+      'handler' => EntityOperationsOperationEditGeneric::class,
       'provision' => array(
         'menu' => TRUE,
         'views field' => TRUE,
       ),
     ),
     'delete' => array(
-      'handler' => 'EntityOperationsOperationDelete',
+      'handler' => EntityOperationsOperationDelete::class,
       'provision' => array(
         'menu' => TRUE,
         'views field' => TRUE,
       ),
     ),
     'devel/devel' => array(
-      'handler' => 'EntityOperationsOperationDevel',
+      'handler' => EntityOperationsOperationDevel::class,
       'provision' => array(
         'menu' => array(
           'default secondary' => TRUE,
@@ -170,19 +170,19 @@ function nestedbox_core_entity_operation_info() {
     ),
     'devel/token' => array(
       // Note this only shows if you have Entity Token module enabled.
-      'handler' => 'EntityOperationsOperationToken',
+      'handler' => EntityOperationsOperationToken::class,
       'provision' => array(
         'menu' => TRUE,
       ),
     ),
     'devel/metadata' => array(
-      'handler' => 'EntityOperationsOperationMetadata',
+      'handler' => EntityOperationsOperationMetadata::class,
       'provision' => array(
         'menu' => TRUE,
       ),
     ),
     'author' => array(
-      'handler' => 'EntityOperationsOperationSetOwner',
+      'handler' => EntityOperationsOperationSetOwner::class,
       'provision' => array(
         'menu' => TRUE,
         //'entity view' => TRUE,
@@ -192,13 +192,13 @@ function nestedbox_core_entity_operation_info() {
 
   $info['_nestedbox_type'] = array(
     'add' => array(
-      'handler' => 'EntityOperationsOperationAddGeneric',
+      'handler' => EntityOperationsOperationAddGeneric::class,
       'provision' => array(
         'menu' => TRUE,
       ),
     ),
     'edit' => array(
-      'handler' => 'EntityOperationsOperationEditGeneric',
+      'handler' => EntityOperationsOperationEditGeneric::class,
       'provision' => array(
         'menu' => array(
           'default' => TRUE,
