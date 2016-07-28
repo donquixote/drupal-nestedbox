@@ -131,6 +131,7 @@ function nestedbox_core_entity_operation_info() {
 
   $info['nestedbox'] = array(
     'add' => array(
+      /* @see nestedbox_core_menu_alter() */
       'handler' => EntityOperationsOperationAddGeneric::class,
       'provision' => array(
         'menu' => TRUE,

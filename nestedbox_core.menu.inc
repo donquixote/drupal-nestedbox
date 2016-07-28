@@ -27,6 +27,15 @@ function nestedbox_core_menu() {
  */
 function nestedbox_core_menu_alter(&$items) {
 
+  /* @see nestedbox_core_entity_operation_info() */
+  /* @see EntityOperationsOperationAddGeneric::menu_item() */
+  if (isset($items['admin/content/nestedbox/add'])) {
+    // Replace MENU_CALLBACK with MENU_LOCAL_ACTION, so a link shows up above
+    // the list of nested boxes.
+    $items['admin/content/nestedbox/add']['type'] = MENU_LOCAL_ACTION;
+    // Rename the link from "Add" to "Add nested box".
+    $items['admin/content/nestedbox/add']['title'] = 'Add nested box';
+  }
 }
 
 /**
