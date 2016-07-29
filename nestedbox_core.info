@@ -5,7 +5,7 @@ core = 7.x
 ; Required for ::class syntax.
 php = 5.5
 
-dependencies[] = xautoload (>=7.x-4.1)
+dependencies[] = xautoload (>=7.x-5.0)
 dependencies[] = entity
 dependencies[] = entity_operations
 ; dependencies[] = inline_entity_form
