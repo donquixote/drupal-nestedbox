@@ -11,7 +11,12 @@ use Drupal\nestedbox_core\NestedBoxType;
  *
  * @return mixed
  */
-function nestedbox_type_form(array $form, array &$form_state, NestedBoxType $nestedbox_type, $op = 'edit') {
+function nestedbox_type_form(
+  array $form,
+  /** @noinspection PhpUnusedParameterInspection */ array &$form_state,
+  NestedBoxType $nestedbox_type,
+  $op = 'edit'
+) {
 
   if ($op === 'clone') {
     $nestedbox_type->label .= ' (cloned)';
@@ -79,7 +84,10 @@ function nestedbox_type_form_submit(array &$form, array &$form_state) {
  * @param array $form
  * @param array $form_state
  */
-function nestedbox_type_form_submit_delete(array &$form, array &$form_state) {
+function nestedbox_type_form_submit_delete(
+  /** @noinspection PhpUnusedParameterInspection */ array &$form,
+  array &$form_state
+) {
   /** @var \Drupal\nestedbox_core\NestedBoxType $nestedbox_type */
   $nestedbox_type = $form_state['nestedbox_type'];
   $form_state['redirect'] = 'admin/structure/nestedbox-types/manage/' . $nestedbox_type->type . '/delete';

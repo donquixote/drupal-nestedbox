@@ -61,7 +61,12 @@ function nestedbox_type_load($type_name) {
  *
  * @return bool
  */
-function nestedbox_access($op, $entity, $account, $entity_type) {
+function nestedbox_access(
+  /** @noinspection PhpUnusedParameterInspection */ $op,
+  /** @noinspection PhpUnusedParameterInspection */ $entity,
+  /** @noinspection PhpUnusedParameterInspection */ $account,
+  /** @noinspection PhpUnusedParameterInspection */ $entity_type
+) {
   // TODO: add access control here.
   return TRUE;
 }
@@ -90,6 +95,9 @@ function nestedbox_type_load_multiple($type_name = NULL) {
  *
  * @return bool
  */
-function nestedbox_type_access($op, $entity = NULL) {
+function nestedbox_type_access(
+  /** @noinspection PhpUnusedParameterInspection */ $op,
+  /** @noinspection PhpUnusedParameterInspection */ $entity = NULL
+) {
   return user_access('administer nestedbox types');
 }
