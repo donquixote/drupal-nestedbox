@@ -191,23 +191,6 @@ function nestedbox_core_entity_operation_info() {
     ),
   );
 
-  $info['_nestedbox_type'] = array(
-    'add' => array(
-      'handler' => EntityOperationsOperationAddGeneric::class,
-      'provision' => array(
-        'menu' => TRUE,
-      ),
-    ),
-    'edit' => array(
-      'handler' => EntityOperationsOperationEditGeneric::class,
-      'provision' => array(
-        'menu' => array(
-          'default' => TRUE,
-        ),
-      ),
-    ),
-  );
-
   return $info;
 }
 
