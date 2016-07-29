@@ -13,7 +13,7 @@ use Drupal\nestedbox_core\NestedBoxType;
  */
 function nestedbox_type_form(array $form, array &$form_state, NestedBoxType $nestedbox_type, $op = 'edit') {
 
-  if ($op == 'clone') {
+  if ($op === 'clone') {
     $nestedbox_type->label .= ' (cloned)';
     $nestedbox_type->type = '';
   }
