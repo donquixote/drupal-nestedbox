@@ -19,6 +19,11 @@ class NestedBoxInlineEntityFormController extends \EntityInlineEntityFormControl
 
   /**
    * Overrides \EntityInlineEntityFormController::entityForm().
+   *
+   * @param array $entity_form
+   * @param array $form_state
+   *
+   * @return array
    */
   public function entityForm($entity_form, &$form_state) {
     /** @var NestedBox $nestedbox */
@@ -62,6 +67,9 @@ class NestedBoxInlineEntityFormController extends \EntityInlineEntityFormControl
 
   /**
    * Overrides EntityInlineEntityFormController::entityFormSubmit().
+   *
+   * @param array $entity_form
+   * @param array $form_state
    */
   public function _entityFormSubmit(&$entity_form, &$form_state) {
     parent::entityFormSubmit($entity_form, $form_state);

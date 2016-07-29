@@ -62,6 +62,9 @@ function nestedbox_type_form($form, &$form_state, NestedBoxType $nestedbox_type,
 
 /**
  * Form API submit callback for the type form.
+ *
+ * @param array $form
+ * @param array $form_state
  */
 function nestedbox_type_form_submit(&$form, &$form_state) {
   /** @var \Drupal\nestedbox_core\NestedBoxType $nestedbox_type */
@@ -72,6 +75,9 @@ function nestedbox_type_form_submit(&$form, &$form_state) {
 
 /**
  * Form API submit callback for the delete button.
+ *
+ * @param array $form
+ * @param array $form_state
  */
 function nestedbox_type_form_submit_delete(&$form, &$form_state) {
   /** @var \Drupal\nestedbox_core\NestedBoxType $nestedbox_type */

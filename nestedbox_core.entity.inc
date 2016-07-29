@@ -108,6 +108,8 @@ function nestedbox_core_entity_info() {
  * We are adding the info about the nestedbox types via a hook to avoid a
  * recursion issue, as loading the nestedbox types requires the entity info as
  * well.
+ *
+ * @param array $entity_info
  */
 function nestedbox_core_entity_info_alter(&$entity_info) {
   foreach (nestedbox_get_types() as $type => $info) {
