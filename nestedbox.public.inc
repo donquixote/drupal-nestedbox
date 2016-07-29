@@ -4,13 +4,11 @@
  * Public API functions and callbacks for Nested box.
  * This file contains all functions that are not prefixed with "nestedbox_core".
  */
-use Drupal\nestedbox_core\NestedBox;
-use Drupal\nestedbox_core\NestedBoxType;
 
 /**
  * Gets an array of all nestedbox types, keyed by the type name.
  *
- * @return NestedBoxType[]
+ * @return \Drupal\nestedbox_core\NestedBoxType[]
  *   An array of nestedbox types. Array keys are the machine names.
  */
 function nestedbox_get_types() {
@@ -26,7 +24,7 @@ function nestedbox_get_types() {
  * @param string $type_name
  *   If set, the type with the given name is returned.
  *
- * @return NestedBoxType|null
+ * @return \Drupal\nestedbox_core\NestedBoxType|null
  *   The nested box type entity with the given name, or NULL if not found.
  */
 function nestedbox_get_type($type_name) {
@@ -46,7 +44,7 @@ function nestedbox_get_type($type_name) {
  * @param string $type_name
  *   The machine-readable name of a nestedbox type to load.
  *
- * @return NestedBoxType|false
+ * @return \Drupal\nestedbox_core\NestedBoxType|false
  *   A nestedbox type array, or FALSE if $type does not exist.
  */
 function nestedbox_type_load($type_name) {
@@ -57,7 +55,7 @@ function nestedbox_type_load($type_name) {
  * Implements callback_entity_access().
  *
  * @param string $op
- * @param NestedBox $entity
+ * @param \Drupal\nestedbox_core\NestedBox $entity
  * @param object $account
  * @param string $entity_type
  *
@@ -88,7 +86,7 @@ function nestedbox_type_load_multiple($type_name = NULL) {
  * Access callback for nestedbox_type.
  *
  * @param string $op
- * @param NestedBoxType $entity
+ * @param \Drupal\nestedbox_core\NestedBoxType $entity
  *
  * @return bool
  */

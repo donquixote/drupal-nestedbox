@@ -1,7 +1,5 @@
 <?php
 
-use Drupal\nestedbox_core\NestedBoxType;
-
 xautoload()->registerModulePsr4(__FILE__, 'psr4');
 
 require_once __DIR__ . '/nestedbox.public.inc';

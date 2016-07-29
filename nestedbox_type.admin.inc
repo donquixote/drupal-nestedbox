@@ -6,7 +6,7 @@ use Drupal\nestedbox_core\NestedBoxType;
  *
  * @param array $form
  * @param array $form_state
- * @param NestedBoxType $nestedbox_type
+ * @param \Drupal\nestedbox_core\NestedBoxType $nestedbox_type
  * @param string $op
  *
  * @return mixed
@@ -64,7 +64,7 @@ function nestedbox_type_form($form, &$form_state, NestedBoxType $nestedbox_type,
  * Form API submit callback for the type form.
  */
 function nestedbox_type_form_submit(&$form, &$form_state) {
-  /** @var NestedBoxType $nestedbox_type */
+  /** @var \Drupal\nestedbox_core\NestedBoxType $nestedbox_type */
   $nestedbox_type = entity_ui_form_submit_build_entity($form, $form_state);
   $nestedbox_type->save();
   $form_state['redirect'] = 'admin/structure/nestedbox-types';
@@ -74,7 +74,7 @@ function nestedbox_type_form_submit(&$form, &$form_state) {
  * Form API submit callback for the delete button.
  */
 function nestedbox_type_form_submit_delete(&$form, &$form_state) {
-  /** @var NestedBoxType $nestedbox_type */
+  /** @var \Drupal\nestedbox_core\NestedBoxType $nestedbox_type */
   $nestedbox_type = $form_state['nestedbox_type'];
   $form_state['redirect'] = 'admin/structure/nestedbox-types/manage/' . $nestedbox_type->type . '/delete';
 }
