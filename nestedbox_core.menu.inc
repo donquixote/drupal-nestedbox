@@ -36,6 +36,15 @@ function nestedbox_core_menu_alter(&$items) {
     // Rename the link from "Add" to "Add nested box".
     $items['admin/content/nestedbox/add']['title'] = 'Add nested box';
   }
+
+  /* @see EntityOperationsDefaultUIController::hook_menu() */
+  if (isset($items[$k = 'admin/content/nestedbox/%entity_object'])) {
+    // Set a dynamic title. Without this, the title provided by
+    // entity_operations would be just 'View', which is not what we intend.
+    /* @see entity_class_label() */
+    $items[$k]['title callback'] = 'entity_class_label';
+    $items[$k]['title arguments'] = array(3);
+  }
 }
 
 /**
