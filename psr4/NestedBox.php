@@ -24,7 +24,7 @@ class NestedBox extends \Entity {
   /**
    * @param array $values
    */
-  public function __construct($values = array()) {
+  public function __construct(array $values = array()) {
     parent::__construct($values, 'nestedbox');
   }
 

@@ -111,7 +111,7 @@ function nestedbox_core_entity_info() {
  *
  * @param array $entity_info
  */
-function nestedbox_core_entity_info_alter(&$entity_info) {
+function nestedbox_core_entity_info_alter(array &$entity_info) {
   foreach (nestedbox_get_types() as $type => $info) {
     $entity_info['nestedbox']['bundles'][$type] = array(
       'label' => $info->label,
