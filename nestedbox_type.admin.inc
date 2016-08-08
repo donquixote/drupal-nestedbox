@@ -78,3 +78,37 @@ function nestedbox_type_form_submit_delete(&$form, &$form_state) {
   $nestedbox_type = $form_state['nestedbox_type'];
   $form_state['redirect'] = 'admin/structure/nestedbox-types/manage/' . $nestedbox_type->type . '/delete';
 }
+
+/**
+ * Nestedbox type delete form.
+ */
+function nestedbox_type_form_delete_confirm($form, &$form_state, $task_type) {
+  if (!empty($task_type)) {
+    $form_state['task_type'] = $task_type;
+    $form['task_type_id'] = array(
+      '#type' => 'value',
+      '#value' => entity_id('nestedbox_type', $task_type)
+    );
+    return confirm_form($form,
+      t('Are you sure you want to delete task type %title?', array('%title' => entity_label('nestedbox_type', $task_type))),
+      'task/' . entity_id('nestedbox_type', $task_type),
+      t('This action cannot be undone.'),
+      t('Delete'),
+      t('Cancel')
+    );
+  }
+  else {
+    $form_state['redirect'] = 'admin/structure/nestedbox-types';
+  }
+}
+
+/**
+ * Nestedbox type delete form submit handler.
+ */
+function nestedbox_type_form_delete_confirm_submit($form, &$form_state) {
+  $nestedbox_type = $form_state['task_type'];
+  entity_delete('nestedbox_type', entity_id('nestedbox_type' ,$nestedbox_type));
+  watchdog('nestedbox_type', '@type: deleted %title.', array('@type' => $nestedbox_type->type, '%title' => $nestedbox_type->label));
+  drupal_set_message(t('%title has been deleted.', array('%title' => $nestedbox_type->label)));
+  $form_state['redirect'] = 'admin/structure/nestedbox-types';
+}

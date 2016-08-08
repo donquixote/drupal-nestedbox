@@ -53,7 +53,7 @@ function nestedbox_core_entity_info() {
       // but without the ID suffix. (In fact, you can set
       // entity_operations_entity_uri() as your URI callback, which will use the
       // value here).
-      'path' => 'admin/content/nestedbox',
+      'path' => 'entity_operations_entity_uri',
     ),
   );
 
@@ -77,6 +77,7 @@ function nestedbox_core_entity_info() {
       'label' => 'label',
     ),
     'access callback' => 'nestedbox_type_access',
+    'static cache' => TRUE,
     'module' => 'nestedbox_core',
     // Enable the entity API's admin UI.
     'admin ui' => array(
