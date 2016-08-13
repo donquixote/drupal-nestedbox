@@ -54,7 +54,7 @@ function nestedbox_core_entity_info() {
       // We need our own controller for this, because we're using generic
       // entity form operations.
       'controller class' => EntityOperationsDefaultAdminUIController::class,
-      /* @see nestedbox_load() */
+      // @todo All the paths use entity_object_load(). A nestedbox_load() does not exist.
       'menu wildcard' => '%nestedbox',
     ),
     // Entity Operations API
