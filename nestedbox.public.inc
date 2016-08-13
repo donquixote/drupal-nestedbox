@@ -48,7 +48,7 @@ function nestedbox_get_type($type_name) {
  *   A nestedbox type array, or FALSE if $type does not exist.
  */
 function nestedbox_type_load($type_name) {
-  return nestedbox_get_type($type_name);
+  return nestedbox_get_type($type_name) ?: FALSE;
 }
 
 /**
