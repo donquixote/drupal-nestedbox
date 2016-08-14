@@ -52,16 +52,33 @@ function nestedbox_type_form(
     '#weight' => 40,
   );
 
-  //Locking not supported yet
-  /*if (!$nestedbox_type->isLocked() && $op != 'add') {
-    $form['actions']['delete'] = array(
-      '#type' => 'submit',
-      '#value' => t('Delete nestedbox type'),
-      '#weight' => 45,
-      '#limit_validation_errors' => array(),
-      '#submit' => array('nestedbox_type_form_submit_delete')
-    );
-  }*/
+  if (!empty($nestedbox_type->type) && $op !== 'add') {
+    if (!$nestedbox_type->hasStatus(ENTITY_IN_CODE)) {
+      // Entity lives only in the database.
+      $form['actions']['delete'] = array(
+        '#type' => 'submit',
+        '#value' => t('Delete nestedbox type'),
+        '#weight' => 45,
+        '#limit_validation_errors' => array(),
+        /* @see nestedbox_type_form_submit_redirect() */
+        '#submit' => array('nestedbox_type_form_submit_redirect'),
+        '#redirect_path' => 'admin/structure/nestedbox-types/manage/' . $nestedbox_type->type . '/delete',
+      );
+    }
+    elseif ($nestedbox_type->hasStatus(ENTITY_OVERRIDDEN)) {
+      // Entity lives in code, and is overridden.
+      $form['actions']['revert'] = array(
+        '#type' => 'submit',
+        '#value' => t('Revert nestedbox type'),
+        '#weight' => 45,
+        '#limit_validation_errors' => array(),
+        /* @see nestedbox_type_form_submit_redirect() */
+        '#submit' => array('nestedbox_type_form_submit_redirect'),
+        '#redirect_path' => 'admin/structure/nestedbox-types/manage/' . $nestedbox_type->type . '/revert',
+      );
+    }
+  }
+
   return $form;
 }
 
@@ -79,16 +96,14 @@ function nestedbox_type_form_submit(array &$form, array &$form_state) {
 }
 
 /**
- * Form API submit callback for the delete button.
+ * Form API submit callback for the delete or revert button.
  *
  * @param array $form
  * @param array $form_state
  */
-function nestedbox_type_form_submit_delete(
+function nestedbox_type_form_submit_redirect(
   /** @noinspection PhpUnusedParameterInspection */ array &$form,
   array &$form_state
 ) {
-  /** @var \Drupal\nestedbox_core\NestedBoxType $nestedbox_type */
-  $nestedbox_type = $form_state['nestedbox_type'];
-  $form_state['redirect'] = 'admin/structure/nestedbox-types/manage/' . $nestedbox_type->type . '/delete';
+  $form_state['redirect'] = $form_state['clicked_button']['#redirect_path'];
 }
