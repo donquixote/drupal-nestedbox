@@ -7,6 +7,12 @@ namespace Drupal\nestedbox_core;
 class NestedBoxType extends \Entity {
 
   /**
+   * @var string|int|null
+   *   E.g. '3' or 3, depending where the data is coming from.
+   */
+  public $id;
+
+  /**
    * @var string
    */
   public $type;
