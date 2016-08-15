@@ -8,6 +8,8 @@ class NestedBoxTypeUIController extends \EntityDefaultUIController {
 
   /**
    * Overrides hook_menu() defaults.
+   *
+   * @return array[]
    */
   public function hook_menu() {
     $items = parent::hook_menu();
