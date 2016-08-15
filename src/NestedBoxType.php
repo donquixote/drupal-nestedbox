@@ -28,6 +28,11 @@ class NestedBoxType extends \Entity {
   public $title_label;
 
   /**
+   * @var string|int|null
+   */
+  public $status;
+
+  /**
    * @param array $values
    */
   public function __construct(array $values = array()) {
