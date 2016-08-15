@@ -116,6 +116,7 @@ function nestedbox_core_entity_info_alter(array &$entity_info) {
     $entity_info['nestedbox']['bundles'][$type] = array(
       'label' => $info->label,
       'admin' => array(
+        /* @see nestedbox_type_load() */
         'path' => 'admin/structure/nestedbox-types/manage/%nestedbox_type',
         'real path' => 'admin/structure/nestedbox-types/manage/' . $type,
         'bundle argument' => 4,

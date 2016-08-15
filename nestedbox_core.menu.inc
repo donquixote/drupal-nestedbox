@@ -56,6 +56,7 @@ function nestedbox_core_admin_menu_map() {
     'parent' => 'admin/structure/nestedbox-types',
     'arguments' => array(
       array(
+        /* @see nestedbox_type_load() */
         '%nestedbox_type' => array_keys(nestedbox_get_types()),
       )
     )
