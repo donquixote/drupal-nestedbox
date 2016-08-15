@@ -31,10 +31,9 @@ class NestedBoxTypeUIController extends \EntityDefaultUIController {
    */
   public function operationForm($form, &$form_state, $nestedbox_type, $op) {
 
-    $list_path = 'admin/structure/nestedbox-types';
-    $base_path = 'admin/structure/nestedbox-types/manage/' . $nestedbox_type->type;
-
     if ($op === 'delete' || $op === 'revert') {
+      $list_path = 'admin/structure/nestedbox-types';
+      $base_path = 'admin/structure/nestedbox-types/manage/' . $nestedbox_type->type;
       if (!$nestedbox_type->hasStatus(ENTITY_IN_CODE)) {
         // Entity lives only in the database.
         if ($op === 'revert') {
