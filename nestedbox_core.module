@@ -21,7 +21,6 @@ function nestedbox_core_module_implements_alter(&$implementations, $hook) {
 
   switch ($hook) {
 
-    case 'menu':
     case 'menu_alter':
     case 'admin_menu_map':
       $group = 'menu';
