@@ -10,6 +10,8 @@ use Drupal\nestedbox_core\NestedBoxType;
  * @param string $op
  *
  * @return mixed
+ *
+ * @see entity_ui_get_form()
  */
 function nestedbox_type_form(
   array $form,
