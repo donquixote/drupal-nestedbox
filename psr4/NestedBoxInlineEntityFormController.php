@@ -25,7 +25,7 @@ class NestedBoxInlineEntityFormController extends \EntityInlineEntityFormControl
    *
    * @return array
    */
-  public function entityForm(array $entity_form, array &$form_state) {
+  public function entityForm($entity_form, &$form_state) {
     /** @var NestedBox $nestedbox */
     $nestedbox = $entity_form['#entity'];
     # /** @var NestedBoxType $nestedbox_type */
